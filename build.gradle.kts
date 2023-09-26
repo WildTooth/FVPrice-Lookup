@@ -10,12 +10,12 @@ version = "1.0.0"
 java.toolchain.languageVersion.set(JavaLanguageVersion.of(17))
 
 labyMod {
-    defaultPackageName = "org.example" //change this to your main package name (used by all modules)
+    defaultPackageName = "com.github.wildtooth.fvtp" //change this to your main package name (used by all modules)
     addonInfo {
-        namespace = "example"
-        displayName = "ExampleAddon"
-        author = "Example Author"
-        description = "Example Description"
+        namespace = "fvtp"
+        displayName = "Champen_V1ldtand's FVTP"
+        author = "Champen_V1ldtand"
+        description = "A FVTP addon for LabyMod"
         minecraftVersion = "*"
         version = System.getenv().getOrDefault("VERSION", "0.0.1")
     }

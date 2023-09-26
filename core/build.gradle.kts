@@ -2,6 +2,7 @@ version = "0.1.0"
 
 plugins {
     id("java-library")
+    kotlin("jvm") version "1.9.0"
 }
 
 dependencies {
@@ -14,6 +15,7 @@ dependencies {
     // You have to specify the repository, there are getters for maven central and sonatype, every
     // other repository has to be specified with their url. Example:
     // maven(mavenCentral(), "org.apache.httpcomponents:httpclient:4.5.13")
+    implementation("com.opencsv:opencsv:5.7.1")
 }
 
 labyModProcessor {
