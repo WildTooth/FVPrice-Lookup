@@ -1,5 +1,6 @@
 package com.github.wildtooth.fvtp;
 
+import com.github.wildtooth.fvtp.listener.ItemStackTooltipListener;
 import com.github.wildtooth.fvtp.storage.InformationConnector;
 import com.github.wildtooth.fvtp.storage.InformationReceiver;
 import com.github.wildtooth.fvtp.storage.InformationStorage;
@@ -24,6 +25,7 @@ public class FreakyVilleAddon extends LabyAddon<FreakyVilleAddonConfiguration> {
     } catch (IOException e) {
       throw new RuntimeException(e);
     }
+    this.registerListener(new ItemStackTooltipListener());
   }
 
   @Override
