@@ -1,5 +1,12 @@
 package com.github.wildtooth.fvtp.item
 
+/**
+ * Represents a skull item.
+ *
+ * @param displayName The display name of the skull item.
+ * @param rarity The rarity of the skull item.
+ * @param modifiers The price modifiers of the skull item.
+ */
 data class SkullItem(
   val displayName: String,
   val rarity: Rarity,
@@ -81,6 +88,14 @@ data class SkullItem(
     UNIQUE(0, 0,true);
 
     companion object {
+      /**
+       * Returns the rarity from the given string.
+       * The string can be either the rarity name or the rarity abbreviation.
+       *
+       * @param string The string to return the rarity from.
+       * @return The rarity from the given string.
+       * @throws IllegalArgumentException If the given string is not a rarity.
+       */
       fun fromString(string: String): Rarity {
         return when (string) {
           "NORMAL" -> NORMAL
@@ -116,6 +131,12 @@ data class SkullItem(
     NONE;
 
     companion object {
+      /**
+       * Returns the price modifier from the given string.
+       *
+       * @param string The string to return the price modifier from.
+       * @return The price modifier from the given string. If the string is not a price modifier, NONE is returned.
+       */
       fun fromString(string: String): PriceModifier {
         return when (string) {
           "EARLY" -> OLD
