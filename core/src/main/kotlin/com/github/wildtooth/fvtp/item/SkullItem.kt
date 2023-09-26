@@ -9,34 +9,34 @@ data class SkullItem(
     return displayName
   }
 
-  fun getMinimumPrice(): Int {
-    var price = (rarity.minPriceInStacks * 64)
+  fun getMinimumPrice(): Double {
+    var price = (rarity.minPriceInStacks * 64).toDouble()
     for (modifier in modifiers) {
-      price += (if (modifier.isNotPercentage) modifier.minEffectValue * 64
-                else price * (modifier.minEffectValue / 100)).toInt()
+      price += (if (modifier.isNotPercentage) (modifier.minEffectValue * 64).toDouble()
+      else (price * (modifier.minEffectValue.toDouble() / 100.0)))
     }
     return price
   }
 
-  fun getMaximumPrice(): Int {
-    var price = (rarity.maxPriceInStacks * 64)
+  fun getMaximumPrice(): Double {
+    var price = (rarity.maxPriceInStacks * 64).toDouble()
     for (modifier in modifiers) {
-      price += (if (modifier.isNotPercentage) modifier.maxEffectValue * 64
-                else price * (modifier.maxEffectValue / 100)).toInt()
+      price += (if (modifier.isNotPercentage) (modifier.maxEffectValue * 64).toDouble()
+      else (price * (modifier.maxEffectValue.toDouble() / 100.0)))
     }
     return price
   }
 
   fun getAveragePrice(): Double {
-    return ((getMinimumPrice() + getMaximumPrice()) / 2).toDouble()
+    return ((getMinimumPrice() + getMaximumPrice()) / 2)
   }
 
   fun getMinimumPriceInStacks(): Double {
-    return (getMinimumPrice() / 64).toDouble()
+    return (getMinimumPrice() / 64)
   }
 
   fun getMaximumPriceInStacks(): Double {
-    return (getMaximumPrice() / 64).toDouble()
+    return (getMaximumPrice() / 64)
   }
 
   fun getAveragePriceInStacks(): Double {
@@ -104,8 +104,8 @@ data class SkullItem(
   }
 
   enum class PriceModifier(
-    val minEffectValue: Short = 0,
-    val maxEffectValue: Short = 0,
+    val minEffectValue: Int = 0,
+    val maxEffectValue: Int = 0,
     val isNotPercentage: Boolean = false
   ) {
     OLD(30, 75),
