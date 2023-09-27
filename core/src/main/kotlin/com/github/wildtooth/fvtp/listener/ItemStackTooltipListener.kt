@@ -29,9 +29,10 @@ class ItemStackTooltipListener {
         return
       }
       if (fvItem.isSellersPrice()) {
-        event.tooltipLines.add(Component.text("Værdi: Sælgerspris"))
+        event.tooltipLines.add(1, Component.text("Værdi: Sælgerspris"))
       } else {
         event.tooltipLines.add(
+          1,
           Component.text(
             "Værdi: ${fvItem.getMinimumPriceInStacks()} - ${fvItem.getMaximumPriceInStacks()} Stacks DBS"
           )
