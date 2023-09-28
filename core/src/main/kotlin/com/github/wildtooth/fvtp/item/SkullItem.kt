@@ -85,7 +85,8 @@ data class SkullItem(
     ULTRA_RARE(18, 30),
     SEMI_UNIQUE(30, 50),
     SEMI_UNIQUE_PLUS(30, 40),
-    UNIQUE(0, 0,true);
+    UNIQUE(0, 0,true),
+    MULTIPLE_RARITIES(0, 0);
 
     companion object {
       /**
@@ -112,7 +113,7 @@ data class SkullItem(
           "SU+" -> SEMI_UNIQUE_PLUS
           "UNIQUE" -> UNIQUE
           "U" -> UNIQUE
-          else -> throw IllegalArgumentException("Unknown rarity: $string")
+          else -> MULTIPLE_RARITIES
         }
       }
     }
