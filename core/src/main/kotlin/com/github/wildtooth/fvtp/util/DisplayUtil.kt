@@ -27,5 +27,11 @@ class DisplayUtil {
         tooltipLines.add(i + 1, Component.text(lines[i], color))
       }
     }
+
+    fun displayPrettily(tooltipLines: MutableList<Component>, index: Int, color: TextColor, vararg lines: String) {
+      for (i in lines.indices) {
+        displayPrettily(tooltipLines, index + i, lines[i], color)
+      }
+    }
   }
 }
