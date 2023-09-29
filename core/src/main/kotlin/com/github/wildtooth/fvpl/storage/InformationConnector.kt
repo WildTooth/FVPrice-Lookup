@@ -1,4 +1,4 @@
-package com.github.wildtooth.fvtp.storage
+package com.github.wildtooth.fvpl.storage
 
 import java.io.IOException
 import java.net.HttpURLConnection

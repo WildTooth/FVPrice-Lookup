@@ -1,7 +1,7 @@
 {
-  "fvtp": {
+  "fvpl": {
     "settings": {
-      "name": "FVTP",
+      "name": "Price Lookup",
       "enabled": {
         "name": "Slået til"
       },

@@ -1,6 +1,6 @@
-package com.github.wildtooth.fvtp.storage
+package com.github.wildtooth.fvpl.storage
 
-import com.github.wildtooth.fvtp.item.FVItem
+import com.github.wildtooth.fvpl.item.FVItem
 
 class InformationStorage {
   init {

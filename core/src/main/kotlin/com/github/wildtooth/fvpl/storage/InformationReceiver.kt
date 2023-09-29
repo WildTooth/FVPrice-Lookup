@@ -1,6 +1,6 @@
-package com.github.wildtooth.fvtp.storage
+package com.github.wildtooth.fvpl.storage
 
-import com.github.wildtooth.fvtp.item.SkullItem
+import com.github.wildtooth.fvpl.item.SkullItem
 import com.opencsv.CSVReader
 import java.io.BufferedReader
 import java.io.IOException

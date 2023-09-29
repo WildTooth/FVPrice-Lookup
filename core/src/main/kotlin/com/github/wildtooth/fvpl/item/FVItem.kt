@@ -1,4 +1,4 @@
-package com.github.wildtooth.fvtp.item
+package com.github.wildtooth.fvpl.item
 
 /**
  * Represents an item that can be priced.

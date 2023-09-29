@@ -1,13 +1,11 @@
-package com.github.wildtooth.fvtp.listener
+package com.github.wildtooth.fvpl.listener
 
-import com.github.wildtooth.fvtp.FreakyVilleAddon
-import com.github.wildtooth.fvtp.item.SkullItem
-import com.github.wildtooth.fvtp.storage.InformationStorage
-import com.github.wildtooth.fvtp.util.DisplayUtil
-import com.github.wildtooth.fvtp.util.FormattingUtil
-import net.labymod.api.client.component.Component
+import com.github.wildtooth.fvpl.FreakyVilleAddon
+import com.github.wildtooth.fvpl.item.SkullItem
+import com.github.wildtooth.fvpl.storage.InformationStorage
+import com.github.wildtooth.fvpl.util.DisplayUtil
+import com.github.wildtooth.fvpl.util.FormattingUtil
 import net.labymod.api.client.component.format.NamedTextColor
-import net.labymod.api.client.component.format.TextColor
 import net.labymod.api.client.component.serializer.plain.PlainTextComponentSerializer
 import net.labymod.api.client.world.item.ItemStack
 import net.labymod.api.event.Subscribe

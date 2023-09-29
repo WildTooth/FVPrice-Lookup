@@ -1,9 +1,9 @@
-package com.github.wildtooth.fvtp;
+package com.github.wildtooth.fvpl;
 
-import com.github.wildtooth.fvtp.listener.ItemStackTooltipListener;
-import com.github.wildtooth.fvtp.storage.InformationConnector;
-import com.github.wildtooth.fvtp.storage.InformationReceiver;
-import com.github.wildtooth.fvtp.storage.InformationStorage;
+import com.github.wildtooth.fvpl.listener.ItemStackTooltipListener;
+import com.github.wildtooth.fvpl.storage.InformationConnector;
+import com.github.wildtooth.fvpl.storage.InformationReceiver;
+import com.github.wildtooth.fvpl.storage.InformationStorage;
 import net.labymod.api.addon.LabyAddon;
 import net.labymod.api.models.addon.annotation.AddonMain;
 import java.io.IOException;
@@ -34,6 +34,6 @@ public class FreakyVilleAddon extends LabyAddon<FreakyVilleAddonConfiguration> {
   }
 
   public static String messageKey() {
-    return "fvtp.messages.";
+    return "fvpl.messages.";
   }
 }

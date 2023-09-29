@@ -1,4 +1,4 @@
-rootProject.name = "FVTP"
+rootProject.name = "FVPrice-Lookup"
 
 pluginManagement {
     val labyGradlePluginVersion = "0.3.30"

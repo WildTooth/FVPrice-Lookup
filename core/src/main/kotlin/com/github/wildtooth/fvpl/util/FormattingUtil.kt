@@ -1,6 +1,6 @@
-package com.github.wildtooth.fvtp.util
+package com.github.wildtooth.fvpl.util
 
-import com.github.wildtooth.fvtp.FreakyVilleAddon
+import com.github.wildtooth.fvpl.FreakyVilleAddon
 import net.labymod.api.util.I18n
 
 class FormattingUtil {

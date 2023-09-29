@@ -1,4 +1,4 @@
-package com.github.wildtooth.fvtp.util
+package com.github.wildtooth.fvpl.util
 
 import net.labymod.api.client.component.Component
 import net.labymod.api.client.component.format.NamedTextColor
