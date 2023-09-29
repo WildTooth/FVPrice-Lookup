@@ -25,7 +25,7 @@ public class FreakyVilleAddon extends LabyAddon<FreakyVilleAddonConfiguration> {
     } catch (IOException e) {
       throw new RuntimeException(e);
     }
-    this.registerListener(new ItemStackTooltipListener());
+    this.registerListener(new ItemStackTooltipListener(this));
   }
 
   @Override

@@ -1,8 +1,10 @@
 package com.github.wildtooth.fvtp.listener
 
+import com.github.wildtooth.fvtp.FreakyVilleAddon
 import com.github.wildtooth.fvtp.item.SkullItem
 import com.github.wildtooth.fvtp.storage.InformationStorage
 import com.github.wildtooth.fvtp.util.DisplayUtil
+import com.github.wildtooth.fvtp.util.FormattingUtil
 import net.labymod.api.client.component.Component
 import net.labymod.api.client.component.format.NamedTextColor
 import net.labymod.api.client.component.format.TextColor
@@ -11,7 +13,7 @@ import net.labymod.api.client.world.item.ItemStack
 import net.labymod.api.event.Subscribe
 import net.labymod.api.event.client.world.ItemStackTooltipEvent
 
-class ItemStackTooltipListener {
+class ItemStackTooltipListener(private val addonMain: FreakyVilleAddon) {
   @Subscribe
   fun onItemStackTooltipEvent(event: ItemStackTooltipEvent) {
     val eventItemStack: ItemStack = event.itemStack()
@@ -37,16 +39,37 @@ class ItemStackTooltipListener {
           DisplayUtil.displayPrettily(
             tooltipLines,
             "Der findes flere items med dette navn.",
-            "Derfor kan værdien ikke forudsiges."
+            "Værdien kan ikke forudsiges."
           )
         }
         else -> {
+          val min = fvItem.getMinimumPrice().toInt()
+          val max = fvItem.getMaximumPrice().toInt()
           DisplayUtil.displayPrettily(
             tooltipLines,
-            NamedTextColor.GREEN,
-            "Værdi: ${fvItem.getMinimumPriceInStacks()} - ${fvItem.getMaximumPriceInStacks()} Stacks DBS"
+            index = 1,
+            "Værdi: ${FormattingUtil.formatPriceRange(min, max)}",
+            NamedTextColor.GREEN
           )
         }
+      }
+      if (addonMain.configuration().debug().get()) {
+        DisplayUtil.displayPrettily(
+          tooltipLines,
+          index = tooltipLines.size,
+          NamedTextColor.YELLOW,
+          "",
+          "[ DEBUG ]",
+          "",
+          "Minimum: ${fvItem.getMinimumPrice()} DBS",
+          "Maximum: ${fvItem.getMaximumPrice()} DBS",
+          "Gennemsnit: ${fvItem.getAveragePrice()} DBS",
+          "",
+          "Sælgers pris: ${fvItem.isSellersPrice()}",
+          "",
+          "Rarity: ${fvItem.rarity}",
+          "Modifiers: ${fvItem.modifiers.contentToString()}"
+        )
       }
     }
   }
