@@ -31,7 +31,7 @@ class ItemStackTooltipListener {
       }
       when (fvItem.rarity) {
         SkullItem.Rarity.UNIQUE -> {
-          DisplayUtil.displayPrettily(tooltipLines, "Værdi: Sælgers pris")
+          DisplayUtil.displayPrettily(tooltipLines, NamedTextColor.GREEN, "Værdi: Sælgers pris")
         }
         SkullItem.Rarity.MULTIPLE_RARITIES -> {
           DisplayUtil.displayPrettily(
