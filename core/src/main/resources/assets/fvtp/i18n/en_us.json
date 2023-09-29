@@ -4,6 +4,18 @@
       "name": "FVTP",
       "enabled": {
         "name": "Enabled"
+      },
+      "debug": {
+        "name": "Debug",
+        "description": "Viser debug informationer diverse steder."
+      },
+      "header": {
+        "general": {
+          "name": "Generelt"
+        },
+        "miscellaneous": {
+          "name": "Diverse"
+        }
       }
     }
   }
