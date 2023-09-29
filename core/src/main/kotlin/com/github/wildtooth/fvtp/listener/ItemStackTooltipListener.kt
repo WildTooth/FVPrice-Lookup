@@ -2,8 +2,10 @@ package com.github.wildtooth.fvtp.listener
 
 import com.github.wildtooth.fvtp.item.SkullItem
 import com.github.wildtooth.fvtp.storage.InformationStorage
+import com.github.wildtooth.fvtp.util.DisplayUtil
 import net.labymod.api.client.component.Component
 import net.labymod.api.client.component.format.NamedTextColor
+import net.labymod.api.client.component.format.TextColor
 import net.labymod.api.client.component.serializer.plain.PlainTextComponentSerializer
 import net.labymod.api.client.world.item.ItemStack
 import net.labymod.api.event.Subscribe
@@ -22,26 +24,27 @@ class ItemStackTooltipListener {
     val fvItem = storage.get(
       PlainTextComponentSerializer.plainText().serialize(eventItemStack.displayName).lowercase()
     )
+    val tooltipLines = event.tooltipLines
     if (fvItem is SkullItem) {
       if (!eventItemStack.isSkull()) {
         return
       }
       when (fvItem.rarity) {
         SkullItem.Rarity.UNIQUE -> {
-          event.tooltipLines.add(1, Component.text("Værdi: Sælgers pris"))
+          DisplayUtil.displayPrettily(tooltipLines, "Værdi: Sælgers pris")
         }
         SkullItem.Rarity.MULTIPLE_RARITIES -> {
-          event.tooltipLines.add(1, Component.text(
-            "Der findes flere items med dette navn.", NamedTextColor.GRAY
-          ))
-          event.tooltipLines.add(2, Component.text(
-            "Derfor kan værdien ikke forudsiges.", NamedTextColor.GRAY
-          ))
+          DisplayUtil.displayPrettily(
+            tooltipLines,
+            "Der findes flere items med dette navn.",
+            "Derfor kan værdien ikke forudsiges."
+          )
         }
         else -> {
-          event.tooltipLines.add(1, Component.text(
-              "Værdi: ${fvItem.getMinimumPriceInStacks()} - ${fvItem.getMaximumPriceInStacks()} Stacks DBS"
-            )
+          DisplayUtil.displayPrettily(
+            tooltipLines,
+            NamedTextColor.GREEN,
+            "Værdi: ${fvItem.getMinimumPriceInStacks()} - ${fvItem.getMaximumPriceInStacks()} Stacks DBS"
           )
         }
       }
