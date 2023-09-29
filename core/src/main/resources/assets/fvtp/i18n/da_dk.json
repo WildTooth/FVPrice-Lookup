@@ -1,0 +1,46 @@
+{
+  "fvtp": {
+    "settings": {
+      "name": "FVTP",
+      "enabled": {
+        "name": "Slået til"
+      },
+      "debug": {
+        "name": "Fejlfinding",
+        "description": "Slår fejlfindings information til."
+      },
+      "header": {
+        "general": {
+          "name": "Generelt"
+        },
+        "miscellaneous": {
+          "name": "Diverse"
+        }
+      }
+    },
+    "messages": {
+      "items": {
+        "sellersPrice": "Værdi: Sælgers pris",
+        "duplicatedName": "Der findes flere items med dette navn.",
+        "impossiblePrediction": "Værdien kan ikke forudsiges."
+      },
+      "debugging": {
+        "debug": "Fejlfinding",
+        "minimum": "Minimum: %s %s",
+        "maximum": "Maximum: %s %s",
+        "average": "Gennemsnit: %s %s",
+        "sellersPrice": "Sælgers pris: %s",
+        "rarity": "Sjældenhed: %s",
+        "modifiers": "Modifikationer: %s"
+      },
+      "formatting": {
+        "price": "Værdi: %s"
+      },
+      "general": {
+        "and": "og",
+        "stacks": "stacks",
+        "diamondBlocksAbbreviation": "DBS"
+      }
+    }
+  }
+}

@@ -32,4 +32,8 @@ public class FreakyVilleAddon extends LabyAddon<FreakyVilleAddonConfiguration> {
   protected Class<? extends FreakyVilleAddonConfiguration> configurationClass() {
     return FreakyVilleAddonConfiguration.class;
   }
+
+  public static String messageKey() {
+    return "fvtp.messages.";
+  }
 }

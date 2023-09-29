@@ -7,15 +7,39 @@
       },
       "debug": {
         "name": "Debug",
-        "description": "Viser debug informationer diverse steder."
+        "description": "Enables debug information."
       },
       "header": {
         "general": {
-          "name": "Generelt"
+          "name": "Generel"
         },
         "miscellaneous": {
-          "name": "Diverse"
+          "name": "Misc."
         }
+      }
+    },
+    "messages": {
+      "items": {
+        "sellersPrice": "Value: Sellers price",
+        "duplicatedName": "There exists multiple items with that name.",
+        "impossiblePrediction": "Value is impossible to predict."
+      },
+      "debugging": {
+        "debug": "Debug",
+        "minimum": "Minimum: %s %s",
+        "maximum": "Maximum: %s %s",
+        "average": "Average: %s %s",
+        "sellersPrice": "Sellers price: %s",
+        "rarity": "Rarity: %s",
+        "modifiers": "Modifiers: %s"
+      },
+      "formatting": {
+        "price": "Value: %s"
+      },
+      "general": {
+        "and": "and",
+        "stacks": "stacks",
+        "diamondBlocksAbbreviation": "DBS"
       }
     }
   }

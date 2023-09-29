@@ -12,6 +12,7 @@ import net.labymod.api.client.component.serializer.plain.PlainTextComponentSeria
 import net.labymod.api.client.world.item.ItemStack
 import net.labymod.api.event.Subscribe
 import net.labymod.api.event.client.world.ItemStackTooltipEvent
+import net.labymod.api.util.I18n
 
 class ItemStackTooltipListener(private val addonMain: FreakyVilleAddon) {
   @Subscribe
@@ -31,15 +32,17 @@ class ItemStackTooltipListener(private val addonMain: FreakyVilleAddon) {
       if (!eventItemStack.isSkull()) {
         return
       }
+      val messageKey = FreakyVilleAddon.messageKey()
       when (fvItem.rarity) {
         SkullItem.Rarity.UNIQUE -> {
-          DisplayUtil.displayPrettily(tooltipLines, NamedTextColor.GREEN, "Værdi: Sælgers pris")
+          DisplayUtil.displayPrettily(tooltipLines, NamedTextColor.GREEN,
+            I18n.translate(messageKey + "items.sellersPrice"))
         }
         SkullItem.Rarity.MULTIPLE_RARITIES -> {
           DisplayUtil.displayPrettily(
             tooltipLines,
-            "Der findes flere items med dette navn.",
-            "Værdien kan ikke forudsiges."
+            I18n.translate(messageKey + "items.duplicatedName"),
+            I18n.translate(messageKey + "items.impossiblePrediction")
           )
         }
         else -> {
@@ -48,27 +51,29 @@ class ItemStackTooltipListener(private val addonMain: FreakyVilleAddon) {
           DisplayUtil.displayPrettily(
             tooltipLines,
             index = 1,
-            "Værdi: ${FormattingUtil.formatPriceRange(min, max)}",
+            I18n.translate(messageKey + "formatting.price",
+              FormattingUtil.formatPriceRange(min, max)),
             NamedTextColor.GREEN
           )
         }
       }
       if (addonMain.configuration().debug().get()) {
+        val diamondBlocksAbbreviation = I18n.translate(messageKey + "general.diamondBlocksAbbreviation")
         DisplayUtil.displayPrettily(
           tooltipLines,
           index = tooltipLines.size,
           NamedTextColor.YELLOW,
           "",
-          "[ DEBUG ]",
+          "[ ${I18n.translate(messageKey + "debugging.debug").uppercase()} ]",
           "",
-          "Minimum: ${fvItem.getMinimumPrice()} DBS",
-          "Maximum: ${fvItem.getMaximumPrice()} DBS",
-          "Gennemsnit: ${fvItem.getAveragePrice()} DBS",
+          I18n.translate(messageKey + "debugging.minimum", fvItem.getMinimumPrice(), diamondBlocksAbbreviation),
+          I18n.translate(messageKey + "debugging.maximum", fvItem.getMaximumPrice(), diamondBlocksAbbreviation),
+          I18n.translate(messageKey + "debugging.average", fvItem.getAveragePrice(), diamondBlocksAbbreviation),
           "",
-          "Sælgers pris: ${fvItem.isSellersPrice()}",
+          I18n.translate(messageKey + "debugging.sellersPrice", fvItem.isSellersPrice()),
           "",
-          "Rarity: ${fvItem.rarity}",
-          "Modifiers: ${fvItem.modifiers.contentToString()}"
+          I18n.translate(messageKey + "debugging.rarity", fvItem.rarity.toString()),
+          I18n.translate(messageKey + "debugging.modifiers", fvItem.modifiers.contentToString()),
         )
       }
     }
