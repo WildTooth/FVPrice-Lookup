@@ -17,7 +17,7 @@ labyMod {
         author = "Champen_V1ldtand"
         description = "Lookup prices for items on FreakyVille"
         minecraftVersion = "*"
-        version = System.getenv().getOrDefault("VERSION", "1.0.0")
+        version = System.getenv().getOrDefault("VERSION", "1.1.0")
     }
 
     minecraft {
