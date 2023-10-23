@@ -15,16 +15,14 @@ import net.labymod.api.util.I18n
 class ItemStackTooltipListener(private val addonMain: FreakyVilleAddon) {
   @Subscribe
   fun onItemStackTooltipEvent(event: ItemStackTooltipEvent) {
-    val eventItemStack: ItemStack = event.itemStack()
-    val storage: InformationStorage = InformationStorage.instance!!
-    if (storage.get(
-        PlainTextComponentSerializer.plainText().serialize(eventItemStack.displayName).lowercase()
-    ) == null) {
+    if (!addonMain.isOnlineOnFreakyVille) {
       return
     }
-    val fvItem = storage.get(
-      PlainTextComponentSerializer.plainText().serialize(eventItemStack.displayName).lowercase()
-    )
+    val eventItemStack: ItemStack = event.itemStack()
+    val storage: InformationStorage = InformationStorage.instance!!
+    val fvItem =
+      storage.get(PlainTextComponentSerializer.plainText().serialize(eventItemStack.displayName).lowercase())
+        ?: return
     val tooltipLines = event.tooltipLines
     if (fvItem is SkullItem) {
       if (!eventItemStack.isSkull()) {
