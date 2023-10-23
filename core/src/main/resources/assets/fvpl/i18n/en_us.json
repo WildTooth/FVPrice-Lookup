@@ -40,6 +40,15 @@
         "and": "and",
         "stacks": "stacks",
         "diamondBlocksAbbreviation": "DBS"
+      },
+      "notifications": {
+        "title": "FV Price Lookup",
+        "onFreakyVille": {
+          "text": "You have joined FreakyVille, the addon will now display FreakyVille related information properly."
+        },
+        "leavingFreakyVille": {
+          "text": "You have left FreakyVille, the addon will not display FreakyVille related information."
+        }
       }
     }
   }

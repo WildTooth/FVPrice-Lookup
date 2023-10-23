@@ -40,6 +40,15 @@
         "and": "og",
         "stacks": "stacks",
         "diamondBlocksAbbreviation": "DBS"
+      },
+      "notifications": {
+        "title": "FV Price Lookup",
+        "onFreakyVille": {
+          "text": "Du har tilsluttet dig FreakyVille, fra nu af vil spillet vise FreakyVille relateret information oprigtigt."
+        },
+        "leavingFreakyVille": {
+          "text": "Du har frakoblet dig FreakyVille, fra nu af vil spillet ikke længere vise FreakyVille relateret information."
+        }
       }
     }
   }
