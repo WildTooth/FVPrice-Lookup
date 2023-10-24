@@ -18,6 +18,7 @@ class ServerNavigationListener(private val addonMain: FreakyVilleAddon) {
   fun onServerJoin(event: ServerJoinEvent) {
     if (!isFreakyVilleServer(event.serverData().address().host.lowercase())) {
       this.addonMain.isOnlineOnFreakyVille = false
+      return
     }
     this.addonMain.isOnlineOnFreakyVille = true
     createAndPushNotification(
