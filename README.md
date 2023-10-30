@@ -7,13 +7,13 @@
 
 FVPL (FreakyVille Price-Lookup) er et addon du kan installere til LabyMod, som gør det nemmere at 
 finde værdien på et item. Er du træt af altid at skulle benytte dig af et googledocs dokument, eller
-et prisplot for at finde værdien på et item? Så er FVTP addon'et lige noget for dig! FVTP tillader
+et prisplot for at finde værdien på et item? Så er FVPL addon'et lige noget for dig! FVPL tillader
 dig nemlig at se værdien på et item, helt uden at skulle forlade Prison. Du kan se værdien på et
 item ved at holde musen over det valgte item.
 
 ### Hvordan installere jeg FVPL?
 
-FVTP er et addon til LabyMod, og kan derfor kun benyttes med LabyMod 4.
+FVPL er et addon til LabyMod, og kan derfor kun benyttes med LabyMod 4.
 Du kan installere FVPL direkte gennem LabyMod(4)s addon-store.
 
 ### Hvad er den nyeste version af FVPL?
