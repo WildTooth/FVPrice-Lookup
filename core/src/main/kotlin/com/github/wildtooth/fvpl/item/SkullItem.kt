@@ -74,6 +74,11 @@ data class SkullItem(
     return result
   }
 
+  override fun toString(): String {
+    return "SkullItem(displayName='$displayName', rarity=$rarity, modifiers=${modifiers.contentToString()})"
+  }
+
+
   enum class Rarity(
     val minPriceInStacks: Int,
     val maxPriceInStacks: Int,
@@ -117,6 +122,10 @@ data class SkullItem(
         }
       }
     }
+
+    override fun toString(): String {
+      return "Rarity(minPriceInStacks=$minPriceInStacks, maxPriceInStacks=$maxPriceInStacks, isSellersPrice=$isSellersPrice)"
+    }
   }
 
   enum class PriceModifier(
@@ -148,6 +157,10 @@ data class SkullItem(
           else -> NONE
         }
       }
+    }
+
+    override fun toString(): String {
+      return "PriceModifier(minEffectValue=$minEffectValue, maxEffectValue=$maxEffectValue, isNotPercentage=$isNotPercentage)"
     }
   }
 }
