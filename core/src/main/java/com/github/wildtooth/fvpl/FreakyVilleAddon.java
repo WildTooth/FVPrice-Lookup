@@ -1,5 +1,6 @@
 package com.github.wildtooth.fvpl;
 
+import com.github.wildtooth.fvpl.command.SearchPriceCommand;
 import com.github.wildtooth.fvpl.listener.ItemStackTooltipListener;
 import com.github.wildtooth.fvpl.listener.ServerNavigationListener;
 import com.github.wildtooth.fvpl.storage.InformationConnector;
@@ -34,6 +35,7 @@ public class FreakyVilleAddon extends LabyAddon<FreakyVilleAddonConfiguration> {
     }
     this.registerListener(new ItemStackTooltipListener(this));
     this.registerListener(new ServerNavigationListener(this));
+    this.registerCommand(new SearchPriceCommand());
   }
 
   @Override

@@ -24,6 +24,15 @@
         "duplicatedName": "Der findes flere items med dette navn.",
         "impossiblePrediction": "Værdien kan ikke forudsiges."
       },
+      "commands": {
+        "search": {
+          "noItem": "Item %s kunne ikke findes.",
+          "final": "Item %s har en værdi af %s %s.",
+          "average": "Item %s har en gennemsnitsværdi af %s %s.",
+          "minimum": "Item %s har en mindste værdi af %s %s.",
+          "maximum": "Item %s har en største værdi af %s %s."
+        }
+      },
       "debugging": {
         "debug": "Fejlfinding",
         "minimum": "Minimum: %s %s",
@@ -37,6 +46,7 @@
         "price": "Værdi: %s"
       },
       "general": {
+        "sellersPrice": "Sælgers pris",
         "and": "og",
         "stacks": "stacks",
         "diamondBlocksAbbreviation": "DBS"

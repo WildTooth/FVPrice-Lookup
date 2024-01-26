@@ -24,6 +24,15 @@
         "duplicatedName": "There exists multiple items with that name.",
         "impossiblePrediction": "Value is impossible to predict."
       },
+      "commands": {
+        "search": {
+          "noItem": "Item %s could not be found.",
+          "final": "Item %s has a value of %s %s.",
+          "average": "Item %s has an average value of %s %s.",
+          "minimum": "Item %s has a minimum value of %s %s.",
+          "maximum": "Item %s has a maximum value of %s %s.",
+        }
+      },
       "debugging": {
         "debug": "Debug",
         "minimum": "Minimum: %s %s",
@@ -37,6 +46,7 @@
         "price": "Value: %s"
       },
       "general": {
+        "sellersPrice": "Sellers price",
         "and": "and",
         "stacks": "stacks",
         "diamondBlocksAbbreviation": "DBS"
