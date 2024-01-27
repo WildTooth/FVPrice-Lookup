@@ -28,9 +28,9 @@
         "search": {
           "noItem": "Item %s could not be found.",
           "final": "Item %s has a value of %s %s.",
-          "average": "Item %s has an average value of %s %s.",
-          "minimum": "Item %s has a minimum value of %s %s.",
-          "maximum": "Item %s has a maximum value of %s %s."
+          "average": "Item \"%s\" has an average value of %s %s.",
+          "minimum": "Item \"%s\" has a minimum value of %s %s.",
+          "maximum": "Item \"%s\" has a maximum value of %s %s."
         }
       },
       "debugging": {

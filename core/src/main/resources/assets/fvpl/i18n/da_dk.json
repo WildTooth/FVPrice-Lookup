@@ -28,9 +28,9 @@
         "search": {
           "noItem": "Item %s kunne ikke findes.",
           "final": "Item %s har en værdi af %s %s.",
-          "average": "Item %s har en gennemsnitsværdi af %s %s.",
-          "minimum": "Item %s har en mindste værdi af %s %s.",
-          "maximum": "Item %s har en største værdi af %s %s."
+          "average": "Item \"%s\" har en gennemsnitsværdi af %s %s.",
+          "minimum": "Item \"%s\" har en mindste værdi af %s %s.",
+          "maximum": "Item \"%s\" har en største værdi af %s %s."
         }
       },
       "debugging": {
