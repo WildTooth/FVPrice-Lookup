@@ -50,27 +50,50 @@ class SearchPriceCommand : Command("search") {
   }
 
   // @TODO This should be redone since it's a bit of a mess
-  // @TODO It also should be changed to displaying the correct prices when in stacks and not.
 
   private fun whenSkullItem(messageKey: String, stacks: String, dbs: String, searchFor: String, item: SkullItem) {
     val args: Array<String> = arrayOf("average", "minimum", "maximum")
     for (arg in args) {
-      val returnString = I18n.translate(messageKey + "commands.search.$arg",
-        searchFor,
-        when(arg) {
-          "average" -> item.getAveragePrice()
-          "minimum" -> item.getMinimumPrice()
-          "maximum" -> item.getMaximumPrice()
-          else -> 0.0
-        },
-        if (item.isSellersPrice()) {
-          "(${I18n.translate(messageKey + "general.sellersPrice")})"
-        } else {
-          if (item.getAveragePrice() > 128) "$stacks $dbs" else dbs
-        }
-      )
+      var returnString: String
+      if (item.getAveragePriceInStacks() >= 2.0) {
+        returnString = I18n.translate(messageKey + "commands.search.$arg",
+          searchFor,
+          whenPriceIsInStacks(arg, item),
+          if (item.isSellersPrice()) {
+            "(${I18n.translate(messageKey + "general.sellersPrice")})"
+          } else {
+            "$stacks $dbs"
+          }
+        )
+      } else {
+        returnString = I18n.translate(messageKey + "commands.search.$arg", searchFor,
+          whenPriceIsNotInStacks(arg, item),
+          if (item.isSellersPrice()) {
+            "(${I18n.translate(messageKey + "general.sellersPrice")})"
+          } else {
+            dbs
+          }
+        )
+      }
       displayMessage(Component.text(returnString, NamedTextColor.YELLOW))
     }
+  }
 
+  private fun whenPriceIsInStacks(arg: String, item: SkullItem): Any {
+    return when(arg) {
+      "average" -> item.getAveragePriceInStacks()
+      "minimum" -> item.getMinimumPriceInStacks()
+      "maximum" -> item.getMaximumPriceInStacks()
+      else -> 0.0
+    }
+  }
+
+  private fun whenPriceIsNotInStacks(arg: String, item: SkullItem): Any {
+    return when(arg) {
+      "average" -> item.getAveragePrice()
+      "minimum" -> item.getMinimumPrice()
+      "maximum" -> item.getMaximumPrice()
+      else -> 0.0
+    }
   }
 }
