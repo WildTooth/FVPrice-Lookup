@@ -6,6 +6,8 @@ import com.github.wildtooth.fvpl.item.PricedItem
 import com.github.wildtooth.fvpl.item.SkullItem
 import com.github.wildtooth.fvpl.storage.InformationStorage
 import net.labymod.api.client.chat.command.Command
+import net.labymod.api.client.component.Component
+import net.labymod.api.client.component.format.NamedTextColor
 import net.labymod.api.util.I18n
 
 class SearchPriceCommand : Command("search") {
@@ -17,7 +19,11 @@ class SearchPriceCommand : Command("search") {
     val storage: InformationStorage = InformationStorage.instance!!
     val item = storage.get(searchFor.lowercase())
     if (item == null) {
-      displayMessage(I18n.translate(FreakyVilleAddon.messageKey() + "commands.search.noItem", searchFor))
+      displayTranslatable(
+        FreakyVilleAddon.messageKey() + "commands.search.noItem",
+        NamedTextColor.YELLOW,
+        searchFor
+      )
       return false
     }
     replyPrettily(searchFor, item)
@@ -35,13 +41,16 @@ class SearchPriceCommand : Command("search") {
           item.expectedPriceDBS,
           if (item.stackPrice) "$stacks $dbs" else dbs
         )
-        displayMessage(returnString)
+        displayMessage(Component.text(returnString, NamedTextColor.YELLOW))
       }
       is SkullItem -> {
         whenSkullItem(messageKey, stacks, dbs, searchFor, item)
       }
     }
   }
+
+  // @TODO This should be redone since it's a bit of a mess
+  // @TODO It also should be changed to displaying the correct prices when in stacks and not.
 
   private fun whenSkullItem(messageKey: String, stacks: String, dbs: String, searchFor: String, item: SkullItem) {
     val args: Array<String> = arrayOf("average", "minimum", "maximum")
@@ -55,12 +64,12 @@ class SearchPriceCommand : Command("search") {
           else -> 0.0
         },
         if (item.isSellersPrice()) {
-          I18n.translate(messageKey + "general.sellersPrice")
+          "(${I18n.translate(messageKey + "general.sellersPrice")})"
         } else {
           if (item.getAveragePrice() > 128) "$stacks $dbs" else dbs
         }
       )
-      displayMessage(returnString)
+      displayMessage(Component.text(returnString, NamedTextColor.YELLOW))
     }
 
   }
