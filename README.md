@@ -1,6 +1,9 @@
 <h1 align="center">FVPL LabyMod Addon</h1>
 <p align="center">Hurtigt, nemt og simpelt</p>
 
+# DISCONTINUED
+### Projektet er droppet, da det ikke længere har relevans grundet implementationen af nogle af disse features inde på FV selv.
+
 ## FAQ
 
 ### Hvad er FVPL?
